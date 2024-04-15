@@ -35,33 +35,40 @@ A combinational circuit is a circuit in which the output depends on the present 
 
 **Program:**
 
-module combinationalcircuit(A,B,C,D,F1);
-input A,B,C,D;
-output F1;
-wire x1,x2,x3,x4,x5;
-assign x1=(~A)&(~B)&(~C)&(~D);
-assign x2=(A)&(~C)&(~D);
-assign x3=(~B)&(C)&(~D);
-assign x4=(~A)&(B)&(C)&(D);
-assign x5=(B)&(~C)&(D);
-assign F1=x1|x2|x3|x4|x5;
+```
+module booleanfun(a,b,c,d,w,x,y,z,f1,f2);
+input a,b,c,d,w,x,y,z;
+output f1,f2;
+wire adash,bdash,cdash,ddash,ydash,p,q,r,s,t,u;
+not(adash,a);
+not(bdash,b);
+not(cdash,c);
+not(ddash,d);
+not(ydash,y);
+and(p,bdash,ddash);
+and(q,adash,b,d);
+and(r,a,b,cdash);
+or(f1,p,q,r);
+and g1(s,ydash,z);
+and g2(t,x,y);
+and g3(u,w,z);
+or g4(f2,s,t,u);
 endmodule
+```
 
 Developed by:HARINI S RegisterNumber:212223040058
 
 **RTL realization**
 
-![image](https://github.com/harinisaravanan10/BOOLEAN_FUNCTION_MINIMIZATION/assets/149035598/2d092898-31f8-4a82-babf-eb644f3701cf)
 
+![image](https://github.com/harinisaravanan10/BOOLEAN_FUNCTION_MINIMIZATION/assets/149035598/75c9b423-30a6-461a-8dd2-be5649476a94)
 
-**Truth table**
-
-![image](https://github.com/harinisaravanan10/BOOLEAN_FUNCTION_MINIMIZATION/assets/149035598/fa5fb2d5-128a-46b9-a392-727d8baf65b9)
 
 
 **Timing Diagram**
 
-![image](https://github.com/harinisaravanan10/BOOLEAN_FUNCTION_MINIMIZATION/assets/149035598/4e93e10d-014b-4a96-87ef-846b5b57ce5f)
+![image](https://github.com/harinisaravanan10/BOOLEAN_FUNCTION_MINIMIZATION/assets/149035598/59f6b480-cc45-4d79-a7c3-be149dcaa9df)
+
 
 
 **Result:**
